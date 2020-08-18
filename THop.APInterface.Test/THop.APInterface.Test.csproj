@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Thop.APInterface\THop.APInterface.csproj" />
+    <ProjectReference Include="..\THop.APInterface\THop.APInterface.csproj" />
   </ItemGroup>
 
 </Project>
