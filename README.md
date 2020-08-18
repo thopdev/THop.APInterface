@@ -5,8 +5,7 @@ Use your API though a interface
 - [Nuget](https://www.nuget.org/packages/THop.APInterface/)
 
 
-![Github Actions](https://img.shields.io/github/workflow/status/thopdev/THop.APInterface/GithubActions.svg?logo=github) 
-
+![.NET Core](https://github.com/thopdev/THop.APInterface/workflows/.NET%20Core/badge.svg?branch=master)
 
 ## Known bugs
 Their are currently no known bugs. If you encounter any bugs please submit a issue though the following link.
