@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface", "Thop.APInterface\THop.APInterface.csproj", "{C2F630CF-6755-41D2-9B8A-69988CFD2A7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface", "THop.APInterface\THop.APInterface.csproj", "{C2F630CF-6755-41D2-9B8A-69988CFD2A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface.Test", "Thop.APInterface.Test\THop.APInterface.Test.csproj", "{976C2D6F-FFDF-4D49-A5E2-362933E646B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface.Test", "THop.APInterface.Test\THop.APInterface.Test.csproj", "{976C2D6F-FFDF-4D49-A5E2-362933E646B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
