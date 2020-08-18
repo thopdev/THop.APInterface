@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore THop.APInterface.sln
+      run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore 
     - name: Test
