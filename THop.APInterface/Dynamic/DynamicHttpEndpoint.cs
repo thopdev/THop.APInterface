@@ -27,7 +27,7 @@ namespace THop.APInterface.Dynamic
         {
             var methods = _type.GetMethods().Where(methodInfo => methodInfo.Name == binder.Name && args.Length == methodInfo.GetParameters().Length);
 
-            var method = methods.First(methodInfo => args.All(arg => methodInfo.GetParameters().Any(x => arg.GetType() == x.ParameterType)));
+            var method = methods.First(methodInfo => args.All(arg => methodInfo.GetParameters().Any(x => x.ParameterType.IsInstanceOfType(arg))));
 
             var attribute = method.GetCustomAttribute(typeof(HttpMethodAttribute), true) as HttpMethodAttribute;
             var route = _controllerName + (attribute.Template != null ? "/" + ReplacePlaceHoldersWithVariables(attribute.Template, method, args) : string.Empty);
