@@ -17,5 +17,15 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release 
+      run: dotnet build --configuration Release --no-restore 
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Publish to Nuget
+      uses: rohith/publish-nuget@v2
+      with:
+          PROJECT_FILE_PATH: THop.APInterface/THop.APInterface.csproj
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          PACKAGE_NAME: THop.APInterface
