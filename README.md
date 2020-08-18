@@ -7,6 +7,34 @@ Use your API though a interface
 
 ![.NET Core](https://github.com/thopdev/THop.APInterface/workflows/.NET%20Core/badge.svg?branch=master)
 
+## Usage
+
+### Create a interface for your controller (Shared) implemented by the controller (API)
+```csharp
+
+    public interface IExampleEndpoint
+    {
+        [HttpGet]
+        Task<object> Get();
+
+        [HttpGet("{id}")]
+        Task<object> Get(string id);
+
+        [HttpGet]
+        Task<object> Get([FromQuery] int number);
+
+        [HttpPost]
+        Task<object> Post([FromBody]object obj);
+
+        [HttpDelete]
+        Task Delete();
+    }
+```
+### Add the interface though Dependency injection
+```csharp
+services.AddAPInterface(typeof(IExampleEndpoint));
+```
+
 ## Known bugs
 Their are currently no known bugs. If you encounter any bugs please submit a issue though the following link.
 
