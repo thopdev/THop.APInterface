@@ -9,14 +9,16 @@ namespace THop.APInterface.Extensions
 {
    public static class ServiceProviderExtensions
     {
-        public static void AddAPInterface(this IServiceCollection services, Type type)
+        public static void AddAPInterface(this IServiceCollection services, params Type[] types)
         {
             services.TryAddScoped(typeof(IHttpClientService), typeof(HttpClientService));
-            services.AddScoped(type, sp =>
-            {
-                var httpClientService = sp.GetRequiredService<IHttpClientService>();
-                return new DynamicHttpEndpoint(httpClientService, type).ActLike(type);
-            });
+            foreach (var type in types) {
+                services.AddScoped(type, sp =>
+                {
+                    var httpClientService = sp.GetRequiredService<IHttpClientService>();
+                    return new DynamicHttpEndpoint(httpClientService, type).ActLike(type);
+                });
+            }
         }
     }
 }

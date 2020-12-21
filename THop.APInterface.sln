@@ -3,9 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface", "THop.APInterface\THop.APInterface.csproj", "{C2F630CF-6755-41D2-9B8A-69988CFD2A7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THop.APInterface", "THop.APInterface\THop.APInterface.csproj", "{C2F630CF-6755-41D2-9B8A-69988CFD2A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THop.APInterface.Test", "THop.APInterface.Test\THop.APInterface.Test.csproj", "{976C2D6F-FFDF-4D49-A5E2-362933E646B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THop.APInterface.Test", "THop.APInterface.Test\THop.APInterface.Test.csproj", "{976C2D6F-FFDF-4D49-A5E2-362933E646B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THop.APIInterface.SourceGenerator", "THop.ApiInterface.SourceGenerator\THop.APIInterface.SourceGenerator.csproj", "{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THOP.APInterface.Cons", "THOP.APInterface.Cons\THOP.APInterface.Cons.csproj", "{356140C0-32E6-4C3C-8200-F84E66DE6998}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THop.APInterface.API", "THop.APInterface.API\THop.APInterface.API.csproj", "{DB82D940-91DA-4011-930F-542AFC857A94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THop.APInterface.SourceGenerator.Test", "THOP.APInterface.SourceGenerator.Test\THop.APInterface.SourceGenerator.Test.csproj", "{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceGenerator", "SourceGenerator", "{54F0B036-CC4B-499F-A2A1-5062A29773C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D8E24F7-32B4-41DD-AB46-E2BF0691EF1A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +36,29 @@ Global
 		{976C2D6F-FFDF-4D49-A5E2-362933E646B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{976C2D6F-FFDF-4D49-A5E2-362933E646B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{976C2D6F-FFDF-4D49-A5E2-362933E646B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356140C0-32E6-4C3C-8200-F84E66DE6998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356140C0-32E6-4C3C-8200-F84E66DE6998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356140C0-32E6-4C3C-8200-F84E66DE6998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356140C0-32E6-4C3C-8200-F84E66DE6998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB82D940-91DA-4011-930F-542AFC857A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB82D940-91DA-4011-930F-542AFC857A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB82D940-91DA-4011-930F-542AFC857A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB82D940-91DA-4011-930F-542AFC857A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CB0AA2C-78DE-4B27-B7C7-A38E0577BAEC} = {54F0B036-CC4B-499F-A2A1-5062A29773C4}
+		{FCC48C76-E7BF-4F7F-9A84-1F5EC94B4B96} = {54F0B036-CC4B-499F-A2A1-5062A29773C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12181B6A-A20F-4D52-AA7C-AAA11049DDB6}
