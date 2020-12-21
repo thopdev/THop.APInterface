@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
+using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 
-namespace THop.APIInterface.SourceGenerator.ClassGenerators
+namespace THop.APInterface.SourceGenerator.ClassGenerators
 {
     public class NamespaceGenerator
     { 

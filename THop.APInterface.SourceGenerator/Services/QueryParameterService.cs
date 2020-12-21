@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.ClassGenerators;
 
-namespace THop.APIInterface.SourceGenerator.Services
+namespace THop.APInterface.SourceGenerator.Services
 {
     public class QueryParameterService
     {

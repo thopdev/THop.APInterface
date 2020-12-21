@@ -1,9 +1,8 @@
 ﻿using System.Linq;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Constants;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
+using THop.APInterface.SourceGenerator.Constants;
+using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 
-namespace THop.APIInterface.SourceGenerator.Services
+namespace THop.APInterface.SourceGenerator.Services
 {
     public class ControllerUrlService
     {

@@ -1,6 +1,6 @@
-﻿using THop.APIInterface.SourceGenerator.ClassGenerators;
+﻿using THop.APInterface.SourceGenerator.ClassGenerators;
 
-namespace THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions
+namespace THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions
 {
     public class InterfaceDefinition : TypeDefinition
     {

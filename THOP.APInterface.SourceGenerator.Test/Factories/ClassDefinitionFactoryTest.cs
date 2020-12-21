@@ -7,9 +7,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Moq;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Factories;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
+using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Factories;
+using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 using THop.APInterface.SourceGenerator.Test.Utils.Attributes;
 using Xunit;
 

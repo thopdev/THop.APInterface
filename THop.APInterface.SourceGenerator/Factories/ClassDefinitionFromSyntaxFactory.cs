@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
+using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 
-namespace THop.APIInterface.SourceGenerator.Factories
+namespace THop.APInterface.SourceGenerator.Factories
 {
     public class ClassDefinitionFactory
     {

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
-using THop.APIInterface.SourceGenerator.Services;
-using THop.APIInterface.SourceGenerator.SyntaxReceivers;
+using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Services;
+using THop.APInterface.SourceGenerator.SyntaxReceivers;
 
-namespace THop.APIInterface.SourceGenerator.SourceGenerators
+namespace THop.APInterface.SourceGenerator.SourceGenerators
 {
 
 

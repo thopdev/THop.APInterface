@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace THop.APIInterface.SourceGenerator.ClassGenerators
+namespace THop.APInterface.SourceGenerator.ClassGenerators
 {
     public interface IAddToStringBuilder
     {

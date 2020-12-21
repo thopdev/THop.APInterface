@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Services;
+using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Services;
 using Xunit;
 
 namespace THop.APInterface.SourceGenerator.Test.Services

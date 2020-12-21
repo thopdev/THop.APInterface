@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using THop.APIInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.ClassGenerators;
 
-namespace THop.APIInterface.SourceGenerator.SourceGenerators
+namespace THop.APInterface.SourceGenerator.SourceGenerators
 {
     public class FunctionBodyFactory
     {

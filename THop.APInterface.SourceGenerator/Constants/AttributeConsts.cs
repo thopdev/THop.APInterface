@@ -1,4 +1,4 @@
-﻿namespace THop.APIInterface.SourceGenerator.Constants
+﻿namespace THop.APInterface.SourceGenerator.Constants
 {
     public class AttributeConstants
     {

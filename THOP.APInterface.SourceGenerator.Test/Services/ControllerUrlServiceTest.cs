@@ -1,7 +1,7 @@
-﻿using THop.APIInterface.SourceGenerator.ClassGenerators;
-using THop.APIInterface.SourceGenerator.Constants;
-using THop.APIInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
-using THop.APIInterface.SourceGenerator.Services;
+﻿using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Constants;
+using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
+using THop.APInterface.SourceGenerator.Services;
 using Xunit;
 
 namespace THop.APInterface.SourceGenerator.Test.Services

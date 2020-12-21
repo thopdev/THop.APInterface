@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using THop.APIInterface.SourceGenerator.Constants;
+using THop.APInterface.SourceGenerator.Constants;
 
-namespace THop.APIInterface.SourceGenerator.SyntaxReceivers
+namespace THop.APInterface.SourceGenerator.SyntaxReceivers
 {
     public class ControllerSyntaxReceiver : ISyntaxReceiver
     {
