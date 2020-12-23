@@ -1,8 +1,8 @@
 ﻿namespace THop.APInterface.SourceGenerator.ClassGenerators
 {
-    public class AttributeParameterGenerator
+    public class AttributeParameterDefinition
     {
-        public AttributeParameterGenerator(string name, object value)
+        public AttributeParameterDefinition(string name, object value)
         {
             Name = name;
             Value = value;

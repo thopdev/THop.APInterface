@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Moq;
 using THop.APInterface.SourceGenerator.ClassGenerators;
 using THop.APInterface.SourceGenerator.Factories;
+using THop.APInterface.SourceGenerator.Factories.Interfaces;
 using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 using THop.APInterface.SourceGenerator.Test.Utils.Attributes;
 using Xunit;
@@ -37,7 +38,7 @@ namespace THop.APInterface.SourceGenerator.Test.Factories
         }
 
         [Theory, AutoMoqData]
-        public void ClassDefinition(string className, ClassDefinitionFactory factory)
+        public void ClassDefinition(string className, TypeDefinitionFactory factory)
         {
             var syntaxToken = CreateSyntaxIdentifierToken(className);
             var classDeclaration = SyntaxFactory.ClassDeclaration(new SyntaxList<AttributeListSyntax>(), new SyntaxTokenList(),
@@ -47,7 +48,7 @@ namespace THop.APInterface.SourceGenerator.Test.Factories
         }
 
         [Theory, AutoMoqData]
-        public void InterfaceDefinition(string interfaceName, string[] methodNames,  string[] attributeNames, [Frozen] Mock<IMethodDefinitionFactory> methodDefinitionFactoryMock, [Frozen] Mock<IAttributeDefinitionFactory> attributeDefinitionFactoryMock,  ClassDefinitionFactory factory)
+        public void InterfaceDefinition(string interfaceName, string[] methodNames,  string[] attributeNames, [Frozen] Mock<IMethodDefinitionFactory> methodDefinitionFactoryMock, [Frozen] Mock<IAttributeDefinitionFactory> attributeDefinitionFactoryMock,  TypeDefinitionFactory factory)
         {
             Expression<Func<IMethodDefinitionFactory, MethodDefinition>> createMethodExpression = e => e.CreateMethodFromSyntax(It.IsAny<MethodDeclarationSyntax>());
             Expression<Func<IAttributeDefinitionFactory, AttributeGenerator>> createAttributeExpression = e => e.CreateAttributeFromSyntax(It.IsAny<AttributeSyntax>());

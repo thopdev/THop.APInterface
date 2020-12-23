@@ -2,16 +2,17 @@
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using THop.APInterface.SourceGenerator.ClassGenerators;
+using THop.APInterface.SourceGenerator.Factories.Interfaces;
 using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 
 namespace THop.APInterface.SourceGenerator.Factories
 {
-    public class ClassDefinitionFactory
+    public class TypeDefinitionFactory : ITypeDefinitionFactory
     {
         private readonly IAttributeDefinitionFactory _attributeDefinitionFactory;
         private readonly IMethodDefinitionFactory _methodDefinitionFactory;
 
-        public ClassDefinitionFactory(IAttributeDefinitionFactory attributeDefinitionFactory,
+        public TypeDefinitionFactory(IAttributeDefinitionFactory attributeDefinitionFactory,
             IMethodDefinitionFactory methodDefinitionFactory)
         {
             _attributeDefinitionFactory = attributeDefinitionFactory;
@@ -44,15 +45,5 @@ namespace THop.APInterface.SourceGenerator.Factories
 
             return new InterfaceDefinition(typeName, attributes, new string[0], members);
         }
-    }
-
-    public interface IAttributeDefinitionFactory
-    {
-        AttributeGenerator CreateAttributeFromSyntax(AttributeSyntax attributeSyntax);
-    }
-
-    public interface IMethodDefinitionFactory
-    {
-        MethodDefinition CreateMethodFromSyntax(MethodDeclarationSyntax method);
     }
 }

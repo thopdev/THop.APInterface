@@ -2,13 +2,13 @@
 {
     public class AttributeGenerator
     {
-        public AttributeGenerator(string name, AttributeParameterGenerator[] parameters)
+        public AttributeGenerator(string name, AttributeParameterDefinition[] parameters)
         {
             Name = name;
             Parameters = parameters;
         }
 
         public string Name { get;  }
-        public AttributeParameterGenerator[] Parameters { get; }
+        public AttributeParameterDefinition[] Parameters { get; }
     }
 }

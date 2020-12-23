@@ -24,7 +24,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
                 new[]
                 {
                     new AttributeGenerator(attributeName,
-                        new AttributeParameterGenerator[0])
+                        new AttributeParameterDefinition[0])
                 });
         }
 
@@ -35,7 +35,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
                 new[]
                 {
                     new AttributeGenerator(attributeName,
-                        new[] {new AttributeParameterGenerator(attributeParameterName, attributeParameterValue)})
+                        new[] {new AttributeParameterDefinition(attributeParameterName, attributeParameterValue)})
                 });
         }
 
@@ -85,7 +85,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
 
             const string expectedUrlResult = "ipsum";
 
-            var method = new MethodDefinition("FooBar", "void", new ParameterGenerator[0], new[] {new AttributeGenerator("Lorem", new AttributeParameterGenerator[0]), new AttributeGenerator("HttNotFoundHttp", new AttributeParameterGenerator[0]), new AttributeGenerator("HttpPost", new []{new AttributeParameterGenerator("route", expectedUrlResult), }),  } );
+            var method = new MethodDefinition("FooBar", "void", new ParameterGenerator[0], new[] {new AttributeGenerator("Lorem", new AttributeParameterDefinition[0]), new AttributeGenerator("HttNotFoundHttp", new AttributeParameterDefinition[0]), new AttributeGenerator("HttpPost", new []{new AttributeParameterDefinition("route", expectedUrlResult), }),  } );
             var result = _service.CreateUrlForMethod(method);
 
             Assert.Equal(expectedUrlResult, result);

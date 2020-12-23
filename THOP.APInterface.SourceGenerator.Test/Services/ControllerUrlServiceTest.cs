@@ -1,7 +1,9 @@
-﻿using THop.APInterface.SourceGenerator.ClassGenerators;
+﻿using AutoFixture.Xunit2;
+using THop.APInterface.SourceGenerator.ClassGenerators;
 using THop.APInterface.SourceGenerator.Constants;
 using THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions;
 using THop.APInterface.SourceGenerator.Services;
+using THop.APInterface.SourceGenerator.Test.Utils.Attributes;
 using Xunit;
 
 namespace THop.APInterface.SourceGenerator.Test.Services
@@ -16,7 +18,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
         }
 
         private static ClassDefinition CreateClassGenerator(string controllerName,
-            AttributeParameterGenerator attribute)
+            AttributeParameterDefinition attribute)
         {
             return new ClassDefinition(controllerName, new[]
                 {
@@ -27,61 +29,29 @@ namespace THop.APInterface.SourceGenerator.Test.Services
         }
 
 
-        [Fact]
-        public void InterfaceControllerWithoutParameter()
+        [Theory]
+        [InlineDomainData("IFooBarController", "/foobar")]
+        [InlineDomainData("BarFooController", "/barfoo")]
+        [InlineDomainData("ILorem", "/lorem")]
+        public void NoParameter(string controllerName, string expectedResult, ControllerUrlService service)
         {
-            var controller = CreateClassGenerator("IFooBarController", null);
+            var controller = CreateClassGenerator(controllerName, null);
 
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/foobar", result);
+            var result = service.CreateUrlForController(controller);
+            Assert.Equal(expectedResult, result);
         }
 
-        [Fact]
-        public void ControllerWithoutParameter()
-        {
-            var controller = CreateClassGenerator("BarFooController", null);
-
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/barfoo", result);
-        }
-
-        [Fact]
-        public void InterfaceWithoutParameter()
-        {
-            var controller = CreateClassGenerator("ILorem", null);
-
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/lorem", result);
-        }
-
-        [Fact]
-        public void ParameterOnlyDynamicControllerName()
+        [Theory]
+        [InlineDomainData("ITestController", "[controller]", "/test")]
+        [InlineDomainData("IIpsumController", "[controller]/lorem/test", "/ipsum/lorem/test")]
+        [InlineDomainData("IIpsumController", "/bar/foo/bar", "/bar/foo/bar")]
+        public void Parameter(string controllerName, string attributeValue, string expectedResult, ControllerUrlService service)
         {
             var controller =
-                CreateClassGenerator("ITestController", new AttributeParameterGenerator("", "[controller]"));
+                CreateClassGenerator(controllerName, new AttributeParameterDefinition(string.Empty, attributeValue));
 
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/test", result);
-        }
-
-        [Fact]
-        public void ParameterWithDynamicControllerNameAndRoute()
-        {
-            var controller = CreateClassGenerator("IIpsumController",
-                new AttributeParameterGenerator("", "[controller]/lorem/test"));
-
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/ipsum/lorem/test", result);
-        }
-
-        [Fact]
-        public void RouteOnly()
-        {
-            var controller =
-                CreateClassGenerator("IIpsumController", new AttributeParameterGenerator("", "/bar/foo/bar"));
-
-            var result = _service.CreateUrlForController(controller);
-            Assert.Equal("/bar/foo/bar", result);
+            var result = service.CreateUrlForController(controller);
+            Assert.Equal(expectedResult, result);
         }
     }
 }
