@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using THop.APInterface.SourceGenerator.ClassGenerators;
-using THop.APInterface.SourceGenerator.Services;
+using THop.APInterface.SourceGenerator.Factories;
+using THop.APInterface.SourceGenerator.Factories.Interfaces;
 using THop.APInterface.SourceGenerator.SyntaxReceivers;
 
 namespace THop.APInterface.SourceGenerator.SourceGenerators
@@ -13,12 +15,25 @@ namespace THop.APInterface.SourceGenerator.SourceGenerators
     [Generator]
     public class ControllerGenerator : ISourceGenerator
     {
+        private readonly ITypeDefinitionFactory _typeFactory;
 
-        private QueryParameterService _parameterService;
+        private readonly IMethodDefinitionFactory _methodFactory;
+        private readonly IParameterDefinitionFactory _parameterFactory;
+
+        private readonly IAttributeDefinitionFactory _attributeFactory;
+        private readonly IAttributeArgumentDefinitionFactory _argumentFactory;
+
+
 
         public ControllerGenerator()
         {
-            _parameterService = new QueryParameterService();
+            _argumentFactory = new AttributeArgumentDefinitionFactory();
+            _attributeFactory = new AttributeDefinitionFactory(_argumentFactory);
+
+            _parameterFactory = new ParameterDefinitionFactory(_attributeFactory);
+            _methodFactory = new MethodDefinitionFactory(_attributeFactory, _parameterFactory);
+
+            _typeFactory = new TypeDefinitionFactory(_attributeFactory, _methodFactory);
         }
 
         public void Initialize(GeneratorInitializationContext context)
@@ -31,30 +46,12 @@ namespace THop.APInterface.SourceGenerator.SourceGenerators
 #if DEBUG
             if (!Debugger.IsAttached) Debugger.Launch();
 #endif
-            var x = context.SyntaxReceiver as ControllerSyntaxReceiver;
+            var controllerSyntaxReceiver = context.SyntaxReceiver as ControllerSyntaxReceiver;
 
-            if (x?.Candidates != null)
-                foreach (var candidate in x.Candidates)
-                {
-                    // var classGenerator =
-                    //     ControllerClassFactory.CreateControllerClassFromInterfaceDeclaration(candidate.Identifier
-                    //         .ValueText);
-                    //
-                    // foreach (var member in candidate.Members.OfType<MethodDeclarationSyntax>())
-                    // {
-                    //     var httpAttribute = member.AttributeLists.Select(attributeSyntax =>
-                    //             attributeSyntax.Attributes.FirstOrDefault(attr =>
-                    //                 (attr.Name as IdentifierNameSyntax)?.Identifier.ValueText.StartsWith("Http") ??
-                    //                 false))
-                    //         .FirstOrDefault();
-                    //
-                    //     if (httpAttribute != null)
-                    //     {
-                    //
-                    //
-                    //     }
-                    }
-                
+            if (controllerSyntaxReceiver?.Candidates != null)
+            {
+                var types = controllerSyntaxReceiver.Candidates.Select(_typeFactory.CreateTypeDefinitionFromSyntax);
+            }
 
             Debug.WriteLine("Initialize code generator");
 
@@ -78,9 +75,9 @@ namespace THop.APInterface.SourceGenerator.SourceGenerators
             };
         }
 
-        public static ParameterGenerator CreateParametersForFunction(ParameterSyntax parameter)
+        public static ParameterDefinition CreateParametersForFunction(ParameterSyntax parameter)
         {
-            return new ParameterGenerator(parameter.Identifier.ValueText, GetTypeNameForTypeSyntax(parameter.Type));
+            return new ParameterDefinition(parameter.Identifier.ValueText, GetTypeNameForTypeSyntax(parameter.Type));
         }
 
         public static AttributeDefinition CreateAttribute(AttributeSyntax attribute)

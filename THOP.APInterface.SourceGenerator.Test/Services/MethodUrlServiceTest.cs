@@ -15,12 +15,12 @@ namespace THop.APInterface.SourceGenerator.Test.Services
 
         private static MethodDefinition CreateFunction(string functionName)
         {
-            return new MethodDefinition(functionName, "void", new ParameterGenerator[0], new AttributeDefinition[0]);
+            return new MethodDefinition(functionName, "void", new ParameterDefinition[0], new AttributeDefinition[0]);
         }
 
         private static MethodDefinition CreateFunction(string functionName, string attributeName)
         {
-            return new MethodDefinition(functionName, "void", new ParameterGenerator[0],
+            return new MethodDefinition(functionName, "void", new ParameterDefinition[0],
                 new[]
                 {
                     new AttributeDefinition(attributeName,
@@ -31,7 +31,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
         private MethodDefinition CreateFunction(string functionName, string attributeName,
             string attributeParameterName, object attributeParameterValue)
         {
-            return new MethodDefinition(functionName, "void", new ParameterGenerator[0],
+            return new MethodDefinition(functionName, "void", new ParameterDefinition[0],
                 new[]
                 {
                     new AttributeDefinition(attributeName,
@@ -85,7 +85,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
 
             const string expectedUrlResult = "ipsum";
 
-            var method = new MethodDefinition("FooBar", "void", new ParameterGenerator[0], new[] {new AttributeDefinition("Lorem", new AttributeArgumentDefinition[0]), new AttributeDefinition("HttNotFoundHttp", new AttributeArgumentDefinition[0]), new AttributeDefinition("HttpPost", new []{new AttributeArgumentDefinition(expectedUrlResult), }),  } );
+            var method = new MethodDefinition("FooBar", "void", new ParameterDefinition[0], new[] {new AttributeDefinition("Lorem", new AttributeArgumentDefinition[0]), new AttributeDefinition("HttNotFoundHttp", new AttributeArgumentDefinition[0]), new AttributeDefinition("HttpPost", new []{new AttributeArgumentDefinition(expectedUrlResult), }),  } );
             var result = _service.CreateUrlForMethod(method);
 
             Assert.Equal(expectedUrlResult, result);

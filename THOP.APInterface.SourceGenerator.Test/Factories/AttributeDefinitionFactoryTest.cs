@@ -36,6 +36,7 @@ namespace THop.APInterface.SourceGenerator.Test.Factories
             Expression<Func<IAttributeArgumentDefinitionFactory, AttributeArgumentDefinition>>
                 attributeParameterExpression = f =>
                     f.CreateAttributeParameterFromSyntax(It.IsAny<AttributeArgumentSyntax>());
+
             attributeParameterDefinitionFactoryMock.Setup(attributeParameterExpression).Returns(() => null)
                 .Verifiable();
 

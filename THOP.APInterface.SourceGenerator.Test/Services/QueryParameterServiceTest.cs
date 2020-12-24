@@ -8,9 +8,9 @@ namespace THop.APInterface.SourceGenerator.Test.Services
 {
     public class QueryParameterServiceTest
     {
-        private static IEnumerable<ParameterGenerator> CreateParameterGenerators(params string[] paramStrings)
+        private static IEnumerable<ParameterDefinition> CreateParameterGenerators(params string[] paramStrings)
         {
-            return paramStrings.Select(p => new ParameterGenerator (p, p));
+            return paramStrings.Select(p => new ParameterDefinition (p, p));
         }
 
         private readonly QueryParameterService _service;

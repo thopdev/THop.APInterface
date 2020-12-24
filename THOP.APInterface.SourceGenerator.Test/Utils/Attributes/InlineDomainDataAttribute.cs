@@ -6,7 +6,6 @@ namespace THop.APInterface.SourceGenerator.Test.Utils.Attributes
     {
         public InlineDomainDataAttribute(params object[] values) : base(new AutoMoqDataAttribute(), values)
         {
-
         }
     }
 }
