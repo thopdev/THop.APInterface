@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using AutoFixture.Xunit2;
@@ -15,7 +16,7 @@ using Xunit;
 
 namespace THop.APInterface.SourceGenerator.Test.Factories
 {
-    public class ClassDefinitionFactoryTest
+    public class TypeDefinitionFactoryTest
     {
         private SyntaxToken CreateSyntaxIdentifierToken(string name)
         {
@@ -30,7 +31,7 @@ namespace THop.APInterface.SourceGenerator.Test.Factories
                 returnType, null, CreateSyntaxIdentifierToken(name), null, SyntaxFactory.ParameterList(), new SyntaxList<TypeParameterConstraintClauseSyntax>(), null, null, new SyntaxToken());
         }
 
-        private AttributeListSyntax CreateAttributeList(string[] names)
+        private AttributeListSyntax CreateAttributeList(IEnumerable<string> names)
         {
             var attributeList = SyntaxFactory.AttributeList();
             var attributes = names.Select(name => SyntaxFactory.Attribute(SyntaxFactory.IdentifierName(CreateSyntaxIdentifierToken(name)))).ToArray();
@@ -51,7 +52,7 @@ namespace THop.APInterface.SourceGenerator.Test.Factories
         public void InterfaceDefinition(string interfaceName, string[] methodNames,  string[] attributeNames, [Frozen] Mock<IMethodDefinitionFactory> methodDefinitionFactoryMock, [Frozen] Mock<IAttributeDefinitionFactory> attributeDefinitionFactoryMock,  TypeDefinitionFactory factory)
         {
             Expression<Func<IMethodDefinitionFactory, MethodDefinition>> createMethodExpression = e => e.CreateMethodFromSyntax(It.IsAny<MethodDeclarationSyntax>());
-            Expression<Func<IAttributeDefinitionFactory, AttributeGenerator>> createAttributeExpression = e => e.CreateAttributeFromSyntax(It.IsAny<AttributeSyntax>());
+            Expression<Func<IAttributeDefinitionFactory, AttributeDefinition>> createAttributeExpression = e => e.CreateAttributeFromSyntax(It.IsAny<AttributeSyntax>());
 
             var syntaxToken = SyntaxFactory.Identifier(new SyntaxTriviaList(), SyntaxKind.AbstractKeyword, interfaceName, interfaceName,
                 new SyntaxTriviaList());

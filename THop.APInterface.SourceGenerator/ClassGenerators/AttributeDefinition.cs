@@ -1,14 +1,14 @@
 ﻿namespace THop.APInterface.SourceGenerator.ClassGenerators
 {
-    public class AttributeGenerator
+    public class AttributeDefinition
     {
-        public AttributeGenerator(string name, AttributeParameterDefinition[] parameters)
+        public AttributeDefinition(string name, AttributeArgumentDefinition[] parameters)
         {
             Name = name;
             Parameters = parameters;
         }
 
         public string Name { get;  }
-        public AttributeParameterDefinition[] Parameters { get; }
+        public AttributeArgumentDefinition[] Parameters { get; }
     }
 }

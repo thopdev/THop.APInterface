@@ -83,11 +83,11 @@ namespace THop.APInterface.SourceGenerator.SourceGenerators
             return new ParameterGenerator(parameter.Identifier.ValueText, GetTypeNameForTypeSyntax(parameter.Type));
         }
 
-        public static AttributeGenerator CreateAttribute(AttributeSyntax attribute)
+        public static AttributeDefinition CreateAttribute(AttributeSyntax attribute)
         {
             if (attribute.Name is IdentifierNameSyntax identifier)
             {
-                return new AttributeGenerator(identifier.Identifier.ValueText, new AttributeParameterDefinition[0]);
+                return new AttributeDefinition(identifier.Identifier.ValueText, new AttributeArgumentDefinition[0]);
             }
 
             throw new NotSupportedException($"Type {attribute.Name?.GetType()} is not supported");

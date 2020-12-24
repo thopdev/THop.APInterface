@@ -4,7 +4,7 @@ namespace THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions
 {
     public class InterfaceDefinition : TypeDefinition
     {
-        public InterfaceDefinition(string name, AttributeGenerator[] attributes, string[] usings, MethodDefinition[] functions) : base(name, attributes, usings)
+        public InterfaceDefinition(string name, AttributeDefinition[] attributes, string[] usings, MethodDefinition[] functions) : base(name, attributes, usings)
         {
             Functions = functions;
         }

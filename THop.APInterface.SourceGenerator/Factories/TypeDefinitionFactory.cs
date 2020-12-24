@@ -26,7 +26,7 @@ namespace THop.APInterface.SourceGenerator.Factories
                 InterfaceDeclarationSyntax interfaceDeclarationSyntax => InterfaceDefinitionFromSyntax(interfaceDeclarationSyntax),
 
                 ClassDeclarationSyntax _ => throw new NotImplementedException(
-                    "ClassDeclaration is not yet implemented "),
+                    "ClassDeclaration is not yet implemented"),
 
                 _ => throw new NotImplementedException(
                     $"{typeDeclarationSyntax.GetType()} is not yet implemented for CreateTypeDefinitionFromSyntax")
@@ -38,7 +38,7 @@ namespace THop.APInterface.SourceGenerator.Factories
         {
             var typeName = interfaceDeclarationSyntax.Identifier.ValueText;
             var attributes = interfaceDeclarationSyntax.AttributeLists.FirstOrDefault()?.Attributes
-                .Select(_attributeDefinitionFactory.CreateAttributeFromSyntax).ToArray() ?? new AttributeGenerator[0];
+                .Select(_attributeDefinitionFactory.CreateAttributeFromSyntax).ToArray() ?? new AttributeDefinition[0];
 
             var members = interfaceDeclarationSyntax.Members.OfType<MethodDeclarationSyntax>()
                 .Select(member => _methodDefinitionFactory.CreateMethodFromSyntax(member)).ToArray();

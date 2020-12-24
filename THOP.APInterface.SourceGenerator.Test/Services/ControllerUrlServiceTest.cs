@@ -18,11 +18,11 @@ namespace THop.APInterface.SourceGenerator.Test.Services
         }
 
         private static ClassDefinition CreateClassGenerator(string controllerName,
-            AttributeParameterDefinition attribute)
+            AttributeArgumentDefinition attribute)
         {
             return new ClassDefinition(controllerName, new[]
                 {
-                    new AttributeGenerator(AttributeConstants.GenerateController,
+                    new AttributeDefinition(AttributeConstants.GenerateController,
                         new[] {attribute})
                 }, new string[0], new MethodImplementationDefinition[0]
             );
@@ -48,7 +48,7 @@ namespace THop.APInterface.SourceGenerator.Test.Services
         public void Parameter(string controllerName, string attributeValue, string expectedResult, ControllerUrlService service)
         {
             var controller =
-                CreateClassGenerator(controllerName, new AttributeParameterDefinition(string.Empty, attributeValue));
+                CreateClassGenerator(controllerName, new AttributeArgumentDefinition(attributeValue));
 
             var result = service.CreateUrlForController(controller);
             Assert.Equal(expectedResult, result);

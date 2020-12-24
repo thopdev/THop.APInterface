@@ -5,10 +5,10 @@ namespace THop.APInterface.SourceGenerator.Models.Definitions.TypeDefinitions
     public abstract class TypeDefinition
     {
         public string Name { get; }
-        public AttributeGenerator[] Attributes { get; }
+        public AttributeDefinition[] Attributes { get; }
         public string[] Usings { get; }
 
-        protected TypeDefinition(string name, AttributeGenerator[] attributes, string[] usings)
+        protected TypeDefinition(string name, AttributeDefinition[] attributes, string[] usings)
         {
             Name = name;
             Attributes = attributes;

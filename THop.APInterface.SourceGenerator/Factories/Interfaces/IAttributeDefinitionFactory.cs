@@ -5,6 +5,6 @@ namespace THop.APInterface.SourceGenerator.Factories.Interfaces
 {
     public interface IAttributeDefinitionFactory
     {
-        AttributeGenerator CreateAttributeFromSyntax(AttributeSyntax attributeSyntax);
+        AttributeDefinition CreateAttributeFromSyntax(AttributeSyntax attributeSyntax);
     }
-}
+} 

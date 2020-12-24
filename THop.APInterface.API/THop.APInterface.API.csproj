@@ -12,7 +12,7 @@
 
 
 	<ItemGroup>
-		<ProjectReference Include="..\THop.ApiInterface.SourceGenerator\THop.APIInterface.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\THOP.APInterface.SourceGenerator\THOP.APInterface.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
 </Project>

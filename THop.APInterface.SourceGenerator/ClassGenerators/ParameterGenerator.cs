@@ -6,10 +6,10 @@
         {
             Name = name;
             Type = type;
-            Attributes = new AttributeGenerator[0];
+            Attributes = new AttributeDefinition[0];
         }
 
-        public ParameterGenerator(string name, string type, AttributeGenerator[] attributes)
+        public ParameterGenerator(string name, string type, AttributeDefinition[] attributes)
         {
             Name = name;
             Type = type;
@@ -18,6 +18,6 @@
 
         public string Name { get; }
         public string Type { get; }
-        public AttributeGenerator[] Attributes { get; }
+        public AttributeDefinition[] Attributes { get; }
     }
 }
